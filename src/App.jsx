@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import FormTask from "./components/tasks/FormTask";
 import ListTasks from "./components/tasks/ListTasks";
 import CounterTasks from "./components/tasks/CounterTasks";
+import Footer from "./components/Footer";
 
 const App = () => {
     return (
@@ -17,17 +18,8 @@ const App = () => {
                     {/* Contador de tareas */}
                     <CounterTasks />
                     {/* Operaciones con la lista de tareas. */}
-                    <section className="container mx-auto mt-8">
-                        <div className="flex justify-center gap-8 bg-white rounded-md p-4">
-                            <button className="hover:text-blue-600 font-bold">Todos</button>
-                            <button className="hover:text-blue-600 font-bold">Activas</button>
-                            <button className="hover:text-blue-600 font-bold">Completadas</button>
-                        </div>
-                    </section>
                 </main>
-                <footer className="container mx-auto px-4 mt-8">
-                    <p className="text-center text-gray-600">Arrastra y suelta para reordenar la lista</p>
-                </footer>
+                <Footer/>
             </div>
         </Fragment>
     );
