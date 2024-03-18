@@ -1,17 +1,12 @@
 import { Fragment } from "react";
 import Cross from "./components/icons/Cross";
-import Moon from "./components/icons/Moon";
+import Header from "./components/Header";
 
 const App = () => {
     return (
         <Fragment>
             <div className="bg-[url('./assets/bg-mobile-light.jpg')] bg-contain bg-no-repeat bg-gray-200 min-h-screen">
-                <header className="container mx-auto px-4 pt-8">
-                    <div className="flex justify-between">
-                        <h1 className="uppercase text-white text-3xl tracking-widest font-bold">Por hacer</h1>
-                        <button><Moon fill="#fff"/></button>
-                    </div>
-                </header>
+                <Header/>
                 <main className="container mx-auto px-4 mt-8">
                     { /* Registro de tareas. */ }
                     <form className>
