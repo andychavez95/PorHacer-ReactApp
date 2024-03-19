@@ -5,7 +5,9 @@ const FormTask = ({ createTask }) => {
     const [message, setMessage] = useState("");
 
     const handleOnEnter = (event) => {
-        if (event.key === "Enter") createTask(message.trim());
+        if (message.trim()) {
+            if (event.key === "Enter") createTask(message.trim());
+        }
     }
 
     const handleOnChange = (event) => {
