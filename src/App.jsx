@@ -4,6 +4,7 @@ import FormTask from "./components/tasks/FormTask";
 import ListTasks from "./components/tasks/ListTasks";
 import CounterTasks from "./components/tasks/CounterTasks";
 import Footer from "./components/Footer";
+import OperationsTasks from "./components/tasks/OperationsTasks";
 
 const initialTask = [
     {
@@ -80,6 +81,7 @@ const App = () => {
                     {/* Contador de tareas */}
                     <CounterTasks />
                     {/* Operaciones con la lista de tareas. */}
+                    <OperationsTasks />
                 </main>
                 <Footer/>
             </div>
