@@ -42,6 +42,15 @@ const App = () => {
 
     const [tasks, setTasks] = useState(initialTask);
 
+    const createTask = (message) => {
+        const newTask = {
+            id: tasks.length + 1,
+            message,
+            completed: false
+        }
+        setTasks([...tasks, newTask])
+    }
+
     // Borra una tarea de la lista.
     const deleteTask = (idTask) => {
         const newArrayTaks = tasks.filter((task) => task.id !== idTask);
@@ -65,7 +74,7 @@ const App = () => {
                 <Header/>
                 <main className="container mx-auto px-4 mt-8">
                     { /* Registro de tareas. */ }
-                    <FormTask />
+                    <FormTask createTask={ createTask } />
                     {/* Lista de tareas. */}
                     <ListTasks tasks={ tasks } deleteTask={ deleteTask } completeTask={ completeTask }/>
                     {/* Contador de tareas */}
