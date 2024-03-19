@@ -1,10 +1,10 @@
 import { Fragment, useState } from "react";
 import Header from "./components/Header";
-import FormTask from "./components/tasks/FormTask";
-import ListTasks from "./components/tasks/ListTasks";
-import CounterTasks from "./components/tasks/CounterTasks";
+import TasksForm from "./components/tasks/TasksForm.jsx";
+import TasksList from "./components/tasks/TasksList.jsx";
+import TasksCounter from "./components/tasks/TasksCounter.jsx";
 import Footer from "./components/Footer";
-import OperationsTasks from "./components/tasks/OperationsTasks";
+import TasksOperations from "./components/tasks/TasksOperations.jsx";
 
 const initialTask = [
     {
@@ -50,13 +50,13 @@ const App = () => {
                 <Header/>
                 <main className="container mx-auto px-4 mt-8">
                     { /* Registro de tareas. */ }
-                    <FormTask createTask={ createTask } />
+                    <TasksForm createTask={ createTask } />
                     {/* Lista de tareas. */}
-                    <ListTasks tasks={ tasks } deleteTask={ deleteTask } completeTask={ completeTask }/>
+                    <TasksList tasks={ tasks } deleteTask={ deleteTask } completeTask={ completeTask }/>
                     {/* Contador de tareas */}
-                    <CounterTasks />
+                    <TasksCounter />
                     {/* Operaciones con la lista de tareas. */}
-                    <OperationsTasks />
+                    <TasksOperations />
                 </main>
                 <Footer/>
             </div>

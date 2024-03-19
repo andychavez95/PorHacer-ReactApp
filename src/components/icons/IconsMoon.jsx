@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-const Moon = ({ ...props }) => {
+const IconsMoon = ({ ...props }) => {
     return (
         <Fragment>
             <svg 
@@ -18,4 +18,4 @@ const Moon = ({ ...props }) => {
     );
 }
 
-export default Moon;
+export default IconsMoon;

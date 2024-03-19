@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FormTask = ({ createTask }) => {
+const TasksForm = ({ createTask }) => {
 
     const [message, setMessage] = useState("");
 
@@ -31,4 +31,4 @@ const FormTask = ({ createTask }) => {
     );
 }
 
-export default FormTask;
+export default TasksForm;

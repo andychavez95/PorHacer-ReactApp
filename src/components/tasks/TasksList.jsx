@@ -1,14 +1,14 @@
-import ItemTask from "./ItemTask";
+import TasksItem from "./TasksItem.jsx";
 
 /*
  * Muestra la lista de tareas.
  */
-const ListTasks = ({ tasks, deleteTask, completeTask }) => {
+const TasksList = ({ tasks, deleteTask, completeTask }) => {
     return (
         <div className="rounded-md bg-white mt-8">
             {
                 tasks.map(task => (
-                    <ItemTask 
+                    <TasksItem
                         task={ task } 
                         key={ task.id } 
                         deleteTask={ deleteTask } 
@@ -20,4 +20,4 @@ const ListTasks = ({ tasks, deleteTask, completeTask }) => {
     );
 }
 
-export default ListTasks;
+export default TasksList;

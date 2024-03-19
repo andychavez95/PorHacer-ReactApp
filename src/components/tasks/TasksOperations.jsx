@@ -1,4 +1,4 @@
-const OperationsTasks = () => {
+const TasksOperations = () => {
     return (
         <section className="container mx-auto mt-8">
             <div className="flex justify-center gap-4 bg-white rounded-md p-4">
@@ -10,4 +10,4 @@ const OperationsTasks = () => {
     );
 }
 
-export default OperationsTasks;
+export default TasksOperations;

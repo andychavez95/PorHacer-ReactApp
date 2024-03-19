@@ -1,11 +1,11 @@
-import Cross from "../icons/Cross"
+import IconsCross from "../icons/IconsCross.jsx"
 
 /*
  * Muestra una tarea.
  * Desde este componente puedes borrar la tarea o cambiar su estado
  * a completado.
  */
-const ItemTask = ({ task, deleteTask, completeTask }) => {
+const TasksItem = ({ task, deleteTask, completeTask }) => {
     
     const handleOnClick = (idTask) => {
         deleteTask(idTask);
@@ -31,10 +31,10 @@ const ItemTask = ({ task, deleteTask, completeTask }) => {
                 onClick={ () => handleOnClick(task.id) } 
                 className="flex-none"
             >
-                <Cross/>
+                <IconsCross/>
             </button>
         </article>
     );
 }
 
-export default ItemTask;
+export default TasksItem;

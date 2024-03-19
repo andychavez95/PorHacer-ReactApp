@@ -1,4 +1,4 @@
-const CounterTasks = () => {
+const TasksCounter = () => {
     return (
         <section className="flex justify-between bg-white px-4 py-4 rounded-md">
             <span className="text-gray-600">quedan x tareas</span>
@@ -7,4 +7,4 @@ const CounterTasks = () => {
     );
 }
 
-export default CounterTasks;
+export default TasksCounter;
