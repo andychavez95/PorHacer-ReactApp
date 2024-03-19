@@ -20,6 +20,21 @@ const initialTask = [
         id: 3,
         message: "Tercer tarea de ejemplo",
         completed: false
+    },
+    {
+        id: 4,
+        message: "Cuarta tarea de ejemplo",
+        completed: false
+    },
+    {
+        id: 5,
+        message: "Quinta tarea de ejemplo",
+        completed: true
+    },
+    {
+        id: 6,
+        message: "Sexta tarea de ejemplo",
+        completed: false
     }
 ];
 
@@ -27,9 +42,21 @@ const App = () => {
 
     const [tasks, setTasks] = useState(initialTask);
 
+    // Borra una tarea de la lista.
     const deleteTask = (idTask) => {
         const newArrayTaks = tasks.filter((task) => task.id !== idTask);
         setTasks([ ...newArrayTaks ]);
+    }
+
+    // Marcar como completada una tarea de la lista.
+    const completeTask = (idTask) => {
+        for (const task of tasks) {
+            if (task.id === idTask) {
+                task.completed = task.completed ? false : true;
+                break;
+            }
+        }
+        setTasks([ ...tasks ]);
     }
 
     return (
@@ -40,7 +67,7 @@ const App = () => {
                     { /* Registro de tareas. */ }
                     <FormTask />
                     {/* Lista de tareas. */}
-                    <ListTasks tasks={ tasks } deleteTask={ deleteTask } />
+                    <ListTasks tasks={ tasks } deleteTask={ deleteTask } completeTask={ completeTask }/>
                     {/* Contador de tareas */}
                     <CounterTasks />
                     {/* Operaciones con la lista de tareas. */}
