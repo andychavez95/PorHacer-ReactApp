@@ -1,19 +1,16 @@
 import ItemTask from "./ItemTask";
 
-const ListTasks = () => {
+/*
+ * Muestra la lista de tareas.
+ */
+const ListTasks = ({ tasks, deleteTask }) => {
     return (
         <div className="rounded-md bg-white mt-8">
-            <ItemTask/>
-            <ItemTask/>
-            <ItemTask/>
-            <ItemTask/>
-            <ItemTask/>
-            <ItemTask/>
-            <ItemTask/>
-            <ItemTask/>
-            <ItemTask/>
-            <ItemTask/>
-            <ItemTask/>
+            {
+                tasks.map(task => (
+                    <ItemTask task={ task } key={ task.id } deleteTask={ deleteTask }/>
+                ))
+            }
         </div>
     );
 }
