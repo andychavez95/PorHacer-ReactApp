@@ -8,33 +8,8 @@ import OperationsTasks from "./components/tasks/OperationsTasks";
 
 const initialTask = [
     {
-        id: 1,
+        id: Date.now(),
         message: "Primer tarea de ejemplo",
-        completed: false
-    },
-    {
-        id: 2,
-        message: "Segunda tarea de ejemplo",
-        completed: true
-    },
-    {
-        id: 3,
-        message: "Tercer tarea de ejemplo",
-        completed: false
-    },
-    {
-        id: 4,
-        message: "Cuarta tarea de ejemplo",
-        completed: false
-    },
-    {
-        id: 5,
-        message: "Quinta tarea de ejemplo",
-        completed: true
-    },
-    {
-        id: 6,
-        message: "Sexta tarea de ejemplo",
         completed: false
     }
 ];
@@ -45,7 +20,7 @@ const App = () => {
 
     const createTask = (message) => {
         const newTask = {
-            id: tasks.length + 1,
+            id: Date.now(),
             message,
             completed: false
         }
