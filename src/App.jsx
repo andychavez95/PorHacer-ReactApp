@@ -44,6 +44,14 @@ const App = () => {
         setTasks([ ...tasks ]);
     }
 
+    const deleteCompletedTask = () => {
+        const newArrayTaks = tasks.filter((task) => !task.completed);
+        setTasks([ ...newArrayTaks ]);
+    }
+
+    // Número de tareas que están pendientes.
+    const computedTasksLeft = tasks.filter((task) => !task.completed).length;
+
     return (
         <Fragment>
             <div className="bg-[url('./assets/bg-mobile-light.jpg')] bg-contain bg-no-repeat bg-gray-200 min-h-screen">
@@ -54,7 +62,10 @@ const App = () => {
                     {/* Lista de tareas. */}
                     <TasksList tasks={ tasks } deleteTask={ deleteTask } completeTask={ completeTask }/>
                     {/* Contador de tareas */}
-                    <TasksCounter />
+                    <TasksCounter 
+                        computedTasksLeft={ computedTasksLeft }
+                        deleteCompletedTask={ deleteCompletedTask }
+                    />
                     {/* Operaciones con la lista de tareas. */}
                     <TasksOperations />
                 </main>
