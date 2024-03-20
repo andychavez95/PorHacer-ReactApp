@@ -11,12 +11,60 @@ const initialTask = [
         id: Date.now(),
         message: "Primer tarea de ejemplo",
         completed: false
+    },
+    {
+        id: Date.now() + 1,
+        message: "Segunda tarea de ejemplo",
+        completed: true
+    },
+    {
+        id: Date.now() + 2,
+        message: "Tercera tarea de ejemplo",
+        completed: false
+    },
+    {
+        id: Date.now() + 3,
+        message: "Cuarta tarea de ejemplo",
+        completed: true
+    },
+    {
+        id: Date.now() + 4 ,
+        message: "Quinta tarea de ejemplo",
+        completed: false
+    },
+    {
+        id: Date.now() + 5,
+        message: "Sexta tarea de ejemplo",
+        completed: true
+    },
+    {
+        id: Date.now() + 6,
+        message: "Septima tarea de ejemplo",
+        completed: false
     }
 ];
 
 const App = () => {
 
     const [tasks, setTasks] = useState(initialTask);
+    const [filter, setFilter] = useState("all");
+
+    const getTask = () => {
+        switch (filter) {
+            case "all":
+                return tasks;
+            case "active":
+                return tasks.filter((task) => !task.completed)
+            case "completed":
+                return tasks.filter((task) => task.completed)
+            default:
+                return tasks;
+        }
+    }
+
+    const applyFilter = (x) => {
+        setFilter(x);
+    } 
 
     const createTask = (message) => {
         const newTask = {
@@ -60,14 +108,14 @@ const App = () => {
                     { /* Registro de tareas. */ }
                     <TasksForm createTask={ createTask } />
                     {/* Lista de tareas. */}
-                    <TasksList tasks={ tasks } deleteTask={ deleteTask } completeTask={ completeTask }/>
+                    <TasksList tasks={ getTask() } deleteTask={ deleteTask } completeTask={ completeTask }/>
                     {/* Contador de tareas */}
                     <TasksCounter 
                         computedTasksLeft={ computedTasksLeft }
                         deleteCompletedTask={ deleteCompletedTask }
                     />
                     {/* Operaciones con la lista de tareas. */}
-                    <TasksOperations />
+                    <TasksOperations filter={ filter } applyFilter={ applyFilter } />
                 </main>
                 <Footer/>
             </div>
