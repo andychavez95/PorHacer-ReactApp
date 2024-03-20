@@ -1,4 +1,5 @@
 import IconsCross from "../icons/IconsCross.jsx"
+import IconsCheck from "../icons/IconsCheck.jsx"
 
 /*
  * Muestra una tarea.
@@ -7,7 +8,7 @@ import IconsCross from "../icons/IconsCross.jsx"
  */
 const TasksItem = ({ task, deleteTask, completeTask }) => {
     
-    const handleOnClick = (idTask) => {
+    const onClickDeleteTask = (idTask) => {
         deleteTask(idTask);
     }
 
@@ -15,20 +16,28 @@ const TasksItem = ({ task, deleteTask, completeTask }) => {
         completeTask(idTask);
     } 
 
+    // Clases para cuando la tarea está completada.
+    const baseClassName = "flex items-center justify-center h-5 w-5 rounded-full border-2";
+    const gradientClassName = "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500";
+    const lineClassName = "line-through text-gray-400";
+
     return (
         <article className="flex items-center gap-4 border-b border-b-gray-400 py-4 px-4">
             <button 
                 onClick={ () => onClickCompleteTask(task.id) } 
-                className="inline-block h-5 w-5 flex-none rounded-full border-2"
+                className={
+                    `${ baseClassName } ${ task.completed && gradientClassName }`
+                }
             >
+                <IconsCheck/>
             </button>
             <p 
-                className={`grow text-gray-600 ${task.completed && "line-through"}`}
+                className={`grow text-gray-600 ${task.completed && lineClassName}`}
             >
                 { task.message }
             </p>
             <button 
-                onClick={ () => handleOnClick(task.id) } 
+                onClick={ () => onClickDeleteTask(task.id) } 
                 className="flex-none"
             >
                 <IconsCross/>
